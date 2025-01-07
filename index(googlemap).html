@@ -255,7 +255,7 @@ width: 200px;
 
         const totalResultsDiv = document.getElementById("total-results");
         if (data.results && data.results.shop) {
-          totalResultsDiv.innerHTML = `総件数: ${data.results.results_available}件 近いお店順に表示`;
+          totalResultsDiv.innerHTML = `総件数: ${data.results.results_available}件（近いお店順に表示）`;
 
           data.results.shop.forEach(shop => {
             shop.distance = calculateDistance(userLatitude, userLongitude, shop.lat, shop.lng);

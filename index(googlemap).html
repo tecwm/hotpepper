@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>現在地からのお店Map</title>
+  <title>最寄りのお店検索</title>
   <style>
     /* ベースのスタイル */
     body {
@@ -192,7 +192,7 @@ width: 200px;
   </style>
 </head>
 <body>
-  <h1>現在地からのお店Map</h1>
+  <h1>最寄りのお店検索</h1>
 
   <!-- 現在地表示 -->
   <div id="location-map"></div>
@@ -214,16 +214,13 @@ width: 200px;
   
   <!-- 総件数表示 -->
   <div id="total-results"></div>
-
-
-
-  <div id="loading">データ取得中...</div>
+  <div id="loading">データを取得中...今しばらくお待ちください。</div>
   <div id="shop-list"></div>
   <div id="pagination" class="pagination"></div>
 
   <script>
-    const API_KEY = "ab77144022a8b23d"; // 実際のAPIキーを入力してください
-    const API_URL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/";
+    const API_KEY = "ab77144022a8b23d"; // APIキー
+    const API_URL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/";// URL
 
     let userLatitude = null;
     let userLongitude = null;
@@ -313,7 +310,7 @@ width: 200px;
           function (position) {
             userLatitude = position.coords.latitude;
             userLongitude = position.coords.longitude;
-            document.getElementById("location-info").innerHTML = `現在地: 緯度 ${userLatitude.toFixed(6)}, 経度 ${userLongitude.toFixed(6)}`;
+            document.getElementById("location-info").innerHTML = `大まかな現在地: 緯度 ${userLatitude.toFixed(6)}, 経度 ${userLongitude.toFixed(6)}`;
             searchShops();     
             document.getElementById("location-map").innerHTML = `<iframe
     src="https://www.google.com/maps?q=${userLatitude.toFixed(6)},${userLongitude.toFixed(6)}&hl=ja&z=17&t=h&output=embed"
@@ -325,8 +322,6 @@ width: 200px;
     referrerpolicy="no-referrer-when-downgrade">
   </iframe>     
 `;
-
-
           },
           function () {
             alert("位置情報の取得に失敗しました。位置情報を有効にしてください。");

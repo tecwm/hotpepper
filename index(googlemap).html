@@ -139,27 +139,13 @@ width: 200px;
       color: #FF7043; /* 営業時間部分の色 */
     }
 
-    /* ページネーション */
-    .pagination {
+
+    .credit {
       text-align: center;
       margin-top: 20px;
     }
 
-    .pagination button {
-      padding: 10px 15px;
-      margin: 5px;
-      border: none;
-      background-color: #FF7043;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-    }
 
-    .pagination button:disabled {
-      background-color: #ddd;
-      cursor: not-allowed;
-    }
 
     /* レスポンシブデザイン */
     @media screen and (max-width: 768px) {
@@ -216,9 +202,11 @@ width: 200px;
   <div id="total-results"></div>
   <div id="loading">データを取得中...今しばらくお待ちください。</div>
   <div id="shop-list"></div>
-  <div id="pagination" class="pagination"></div>
+  <div class="credit">Powered by <a href="http://webservice.recruit.co.jp/">ホットペッパーグルメ Webサービス</a></div>
 
-<a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス"></a>
+
+
+
 
   <script>
     const API_KEY = "ab77144022a8b23d"; // APIキー
